@@ -34,3 +34,17 @@ Note:
 Use webhook.site to obtain an open API endpoint that you can use for this task.
 Your script should be written in object-oriented PHP. With classes and methods.
 You may use vanilla JavaScript, jQuery or any other library you're familiar with for the front-end form validation.
+
+Development Steps:
+
+1. Install PHP
+	- I'm using PHP version 8.0.0 included in xampp 8.0.0 installer.
+	
+2. Install IDE
+	- Jetbrains PhpStorm 2020.3.1
+	
+3. Create the main PHP file containing the html input form.
+
+4. Create PHP code for each of the required functionalities.
+
+5. Refactor the code to encapsulate functionality into classes, methods and corresponding PHP files.
