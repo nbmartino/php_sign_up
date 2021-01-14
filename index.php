@@ -1,6 +1,4 @@
-<?php
 
-?>
 <!DOCTYPE html>
 <html>
 <style>
@@ -43,12 +41,6 @@
         opacity:1;
     }
 
-    /* Extra styles for the cancel button */
-    .cancelbtn {
-        padding: 14px 20px;
-        background-color: #f44336;
-    }
-
     /* Float cancel and signup buttons and add an equal width */
     .cancelbtn, .signupbtn {
         float: left;
@@ -75,23 +67,35 @@
     }
 </style>
 <script type="text/javascript" language="javascript">
-    function submitlogin() {
-        var form = document.signup;
 
-        if(form.first_name.value == ""){
-            alert( "Enter First Name." );
-            return false;
-        }
-    else if(form.email.value == ""){
-            alert( "Enter Email." );
-            return false;
-        }
+    function validateEmail(email) {
+        const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
     }
+
+    function validate() {
+        let form = document.sign_up;
+
+      if(form.email.value == "" || form.email.value == null ){
+                alert( "Enter Email." );
+                return false;
+            }
+            else {
+                if(validateEmail(form.email.value)) {
+                    return true;
+                }
+                else{
+                    alert("email address is not valid!")
+                    return false;
+                }
+            }
+    }
+
 </script>
 
 <body>
 
-<form name="signup" method="post" style="border:1px solid #ccc">
+<form   name="sign_up" action ="post_to_api.php" method="post"   onsubmit="return(validate())" style="border:1px solid #ccc">
     <div class="container">
         <h1>Sign Up</h1>
         <hr>
@@ -105,12 +109,10 @@
         <input type="text" placeholder="Enter Email" name="email" required>
 
         <label for="phone_number"><b>Phone Number</b></label>
-        <input type="password" placeholder="Enter Phone Number" name="phone_number">
-
-        <input  onclick="return(submitlogin())" type="submit" name="submit-btn" value="submit">
+        <input type="text" placeholder="Enter Phone Number" name="phone_number">
 
         <div class="clearfix">
-            <button type="submit" class="signupbtn">Sign Up</button>
+            <button type="submit" name ="login" class="signupbtn">Sign Up</button>
         </div>
 
     </div>
