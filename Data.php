@@ -6,9 +6,9 @@ class Data{
         or invalid characters before the data gets posted. */
 
         foreach($parameters as $key => $value) {
-            echo "\r\nPOST parameter '$key' has '$value'";
+            //echo "\r\nPOST parameter '$key' has '$value'";
             $parameters[$key] = filter_var($value,FILTER_SANITIZE_STRING);
-            echo "\r\nPOST parameter '$key' has '$parameters[$key]' after sanitizing.";
+            //echo "\r\nPOST parameter '$key' has '$parameters[$key]' after sanitizing.";
         }
         return $parameters;
     }
